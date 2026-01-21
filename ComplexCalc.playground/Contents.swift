@@ -28,6 +28,99 @@ print("Welcome back to the UW Calculator")
 //: IMPORTANT: If any tests are commented out, you will be graded a zero (0)! You should never be in the habit of eliminating tests to make the code pass.
 //:
 class Calculator {
+    
+    func add(lhs: Int, rhs: Int) -> Int {
+        return lhs + rhs
+    }
+    
+    func add(_ numbers: [Int]) -> Int {
+        var total = 0
+        
+        for num in numbers {
+            total += num
+        }
+        
+        return total
+    }
+    
+    func add(lhs: (Int, Int), rhs: (Int, Int)) -> (Int, Int) {
+        return ((lhs.0 + rhs.0), (lhs.1 + rhs.1))
+    }
+    
+    func add(lhs: [String: Int], rhs: [String: Int]) -> [String: Int] {
+        return [
+            "x": (lhs["x"] ?? 0) + (rhs["x"] ?? 0),
+            "y": (lhs["y"] ?? 0) + (rhs["y"] ?? 0)
+        ]
+    }
+    
+    func subtract(lhs: Int, rhs: Int) -> Int {
+        return lhs - rhs
+    }
+    
+    func subtract(lhs: (Int, Int), rhs: (Int, Int)) -> (Int, Int) {
+        return ((lhs.0 - rhs.0), (lhs.1 - rhs.1))
+    }
+    
+    func subtract (lhs: [String: Int], rhs: [String: Int]) -> [String: Int] {
+        return [
+            "x": (lhs["x"] ?? 0) - (rhs["x"] ?? 0),
+            "y": (lhs["y"] ?? 0) - (rhs["y"] ?? 0)
+        ]
+    }
+    
+    
+    func multiply(lhs: Int, rhs: Int) -> Int {
+        return lhs * rhs
+    }
+    
+    func multiply(_ numbers: [Int]) -> Int {
+        if numbers.isEmpty {
+            return 0
+        }
+        
+        var total = 0
+        for num in numbers {
+            total *= num
+        }
+        
+        return total
+    }
+    
+    func divide(lhs: Int, rhs: Int) -> Int {
+        return lhs / rhs
+    }
+    
+    func mathOp(lhs: Int, rhs: Int, op: (Int, Int) -> Int) -> Int {
+        return op(lhs, rhs)
+    }
+    
+    func mathOp(args: [Int], beg: Int, op: (Int, Int) -> Int) -> Int {
+        var total = beg
+        for num in args {
+            total = op(total, num)
+        }
+        
+        return total
+    }
+    
+    func count(_ numbers: [Int]) -> Int {
+        return numbers.count
+    }
+    
+    func avg(_ numbers: [Int]) -> Int {
+        if numbers.isEmpty {
+            return 0
+        }
+        
+        var total = 0
+        for num in numbers {
+            total += num
+        }
+        
+        return total / numbers.count
+    }
+
 }
 
 //: Don't change the name of this object (`calc`); it's used in all the tests.
