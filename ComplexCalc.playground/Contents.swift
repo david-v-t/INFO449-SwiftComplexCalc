@@ -79,7 +79,7 @@ class Calculator {
             return 0
         }
         
-        var total = 0
+        var total = 1
         for num in numbers {
             total *= num
         }
